@@ -1,0 +1,28 @@
+.displayContainer {
+	display: flex;
+	width: 100%;
+	height: 50%;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+
+.equation {
+	margin: 0 10px 0 0;
+	font-size: larger;
+	transition: 0.4s ease-in-out;
+	font-weight: 500;
+}
+
+.result {
+	font-weight: 600;
+	font-size: xx-large;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+	transition: 0.4s ease-in-out;
+}
+.result > * {
+	margin: 0 20px;
+}

@@ -1,16 +1,13 @@
 export const themeColors = {
 	light: {
-		toggleIcon: "white",
-		toggleButtonLight: "rgb(226, 236, 253)",
-		toggleButtonDark: "rgb(195, 215, 251)",
+		toggleIcon: "#f3dfdfb5",
 		calculatorBackground: "rgb(245, 245, 245)",
-		primaryTextColor: "rgb(149, 149, 149)",
+		primaryTextColor: "rgb(119 116 116)",
 		commonTextColor: "rgb(55, 55, 55)",
 		operatorsContainerBg: "linear-gradient(to right, rgb(201, 208, 241), rgb(178, 205, 250))",
 	},
 	dark: {
-		toggleIcon: "black",
-		toggleButtonDark: "rgb(38, 48, 95)",
+		toggleIcon: "white",
 		calculatorBackground: "rgb(36, 37, 39)",
 		primaryTextColor: "rgb(141, 142, 143)",
 		commonTextColor: "rgb(250, 250, 250)",
