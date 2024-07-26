@@ -1,7 +1,10 @@
 .calculator {
+	display: flex;
+	flex-direction: column;
+	position: relative;
 	width: 450px;
 	height: 700px;
 	padding: 10px 0;
-	border-radius: 40px;
+	border-radius: 30px;
 	transition: 0.4s ease-in-out;
 }

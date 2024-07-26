@@ -10,6 +10,7 @@ function Toggle() {
 	const handleChange = (e) => {
 		toggleTheme();
 	};
+	document.querySelector("body").setAttribute("data-theme", theme);
 
 	return (
 		<div>
