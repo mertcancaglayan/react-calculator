@@ -10,7 +10,7 @@ export const ThemeProvider = ({ children }) => {
 		setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
 	};
 
-	const currentThemeColors = themeColors[theme];
+	const currentThemeColors = themeColors[theme] || themeColors.light;
 
 	return <ThemeContext.Provider value={{ theme, toggleTheme, currentThemeColors }}>{children}</ThemeContext.Provider>;
 };
