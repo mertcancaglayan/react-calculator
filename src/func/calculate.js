@@ -4,6 +4,11 @@ const replaceOperators = (expression) => {
 	return expression.replace(/÷/g, "/").replace(/×/g, "*");
 };
 
+const sanitizeExpression = (expression) => {
+	// Remove leading zeros from numbers in the expression
+	return expression.replace(/\b0+(\d)/g, "$1");
+};
+
 const toggleSign = (currentExpression) => {
 	if (currentExpression === "") return "";
 
@@ -31,7 +36,10 @@ const handlePercentage = (currentExpression) => {
 	if (currentExpression === "" || operators.includes(currentExpression.slice(-1))) {
 		return currentExpression;
 	}
-	return currentExpression + "%";
+	const parts = currentExpression.split(/([+\-*/÷×])/);
+	const lastPart = parts.pop();
+	const percentageValue = (parseFloat(lastPart) / 100).toString();
+	return parts.join("") + percentageValue;
 };
 
 const handleDecimal = (currentExpression) => {
@@ -44,13 +52,32 @@ const handleDecimal = (currentExpression) => {
 	return currentExpression + ".";
 };
 
+const handleDelete = (currentExpression) => {
+	return currentExpression.slice(0, -1);
+};
+
 export const calculate = (input, currentExpression) => {
 	if (currentExpression === "Error") return "";
-	if (input === "AC") return "";
+	if (input === "AC") {
+		return "";
+	}
 
 	if (input === "=") {
+		let expression = sanitizeExpression(currentExpression);
+		const lastChar = expression.slice(-1);
+		if (operators.includes(lastChar)) {
+			expression = expression.slice(0, -1);
+		}
 		try {
-			return eval(replaceOperators(currentExpression)).toString();
+			const result = eval(replaceOperators(expression)).toString();
+			const equation = `${expression} = ${result}`;
+
+			let lastFour = JSON.parse(localStorage.getItem("lastFour")) || [];
+			lastFour.push(equation);
+			if (lastFour.length > 4) lastFour.shift();
+			localStorage.setItem("lastFour", JSON.stringify(lastFour));
+
+			return result;
 		} catch (error) {
 			return "Error";
 		}
@@ -66,6 +93,10 @@ export const calculate = (input, currentExpression) => {
 
 	if (input === ".") {
 		return handleDecimal(currentExpression);
+	}
+
+	if (input === "delete") {
+		return handleDelete(currentExpression);
 	}
 
 	const lastChar = currentExpression.slice(-1);

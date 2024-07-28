@@ -24,7 +24,6 @@
 	border-radius: 30px;
 }
 
-
 .keypad-row {
 	display: flex;
 	align-items: center;
@@ -38,6 +37,11 @@
 	gap: 15px;
 }
 
+.keypad-numbers .keypad-row:last-child .keypad-btn:last-child {
+	font-size: large;
+	font-weight: 600;
+}
+
 .keypad-vertical {
 	display: flex;
 	flex-direction: column;
@@ -47,7 +51,6 @@
 	gap: 15px;
 	border-radius: 30px;
 }
-
 
 .keypad-btn {
 	width: 60px;
