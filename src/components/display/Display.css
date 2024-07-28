@@ -7,6 +7,14 @@
 	justify-content: flex-end;
 }
 
+.pastEquations {
+	opacity: 0;
+	text-align: end;
+	margin: 0 10px 0 0;
+	word-wrap: break-word;
+	width: 95%;
+}
+
 .equation {
 	text-align: end;
 	margin: 0 10px 0 0;
@@ -26,4 +34,9 @@
 }
 .result > * {
 	margin: 0 20px;
+}
+
+.resultValue {
+	text-align: end;
+	word-break: break-all;
 }

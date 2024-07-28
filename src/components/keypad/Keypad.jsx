@@ -34,6 +34,7 @@ const Keypad = ({ onButtonClick }) => {
 		["4", "5", "6"],
 		["1", "2", "3"],
 		[".", "0", "00"],
+		["(", ")", "delete"],
 	];
 	const verticalButtons = ["÷", "×", "-", "+", "="];
 
