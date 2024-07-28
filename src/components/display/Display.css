@@ -8,9 +8,12 @@
 }
 
 .equation {
+	text-align: end;
 	margin: 0 10px 0 0;
 	font-size: larger;
 	font-weight: 500;
+	width: 95%;
+	word-wrap: break-word;
 }
 
 .result {
